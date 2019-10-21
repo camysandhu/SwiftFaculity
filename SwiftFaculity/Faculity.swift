@@ -10,8 +10,8 @@ import Foundation
 
 enum FacultyError: Error
 {
-    case InvalidSalaryWithMessage(message: String)
     case InvalidSalary(salary: Double)
+    case InvalidSalaryWithMessage(message: String)
     case InvalidFaculityName(faculityName: String)
     case InvalidEmployeeId(faculityId: Int)
 }
@@ -48,6 +48,15 @@ class Faculity
         {
             throw FacultyError.InvalidSalaryWithMessage(message: "Invalid Salary : \(salary) <  1000")
         }
+        self.salary = salary
+    }
+    func setSalary(salary: Double) throws
+    {
+        if salary < 1000
+        {
+            throw FacultyError.InvalidSalaryWithMessage(message: "Invalid salary : \(salary) < 1000")
+        }
+        
         self.salary = salary
     }
     

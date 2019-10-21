@@ -13,7 +13,10 @@ do
 {
     var f1: Faculity = try Faculity(faculityId: 11, faculityName: "Camy", salary: 900.00)
    // print(f1.faculityName)
-    
+    print(f1.faculityName)
+    try f1.setSalary(salary: 3000.00)
+    f1.setfaculityName(name: "New")
+
     
 }
 catch FacultyError.InvalidEmployeeId(let faculityId)
@@ -28,6 +31,11 @@ catch FacultyError.InvalidSalary(let salary)
 {
     print("Invalid Salary: \(salary)")
 }
+catch FacultyError.InvalidSalaryWithMessage(let message)
+{
+    print(message)
+}
+
 
 
 
